@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Obesity Prediction</title>
+  <style>
+    /* Global Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Dark Mode & Centering */
+    body {
+      background-color: #121212;
+      color: #e0e0e0;
+      font-family: Arial, sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      overflow: hidden;
+      padding: 20px;
+    }
+
+    /* Container for the form */
+    .container {
+      background-color: #1e1e1e;
+      width: 90vw;
+      max-width: 800px;
+      height: 90vh;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+      overflow-y: auto;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #ffffff;
+    }
+
+    form {
+      width: 100%;
+    }
+
+    /* Row grouping for multiple input sets */
+    .form-row {
+      display: flex;
+      flex-wrap: wrap;
+      margin-bottom: 15px;
+    }
+
+    /* Each input set */
+    .form-group {
+      flex: 1;
+      min-width: 250px;
+      margin-right: 15px;
+      margin-bottom: 15px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+
+    .form-group input[type="text"],
+    .form-group input[type="number"] {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #333;
+      border-radius: 4px;
+      background-color: #2c2c2c;
+      color: #e0e0e0;
+    }
+
+    /* Submit button styled as full width row */
+    .form-row.full-width {
+      flex-direction: column;
+    }
+
+    .form-row.full-width input[type="submit"] {
+      width: 100%;
+      padding: 12px;
+      background-color: #6200ea;
+      border: none;
+      border-radius: 4px;
+      color: #ffffff;
+      font-size: 1em;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .form-row.full-width input[type="submit"]:hover {
+      background-color: #3700b3;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 600px) {
+      .form-group {
+        min-width: 100%;
+        margin-right: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Obesity Prediction</h1>
+    <form action="app.py" method="post">
+      <!-- Row 1: Gender & Age -->
+      <div class="form-row">
+        <div class="form-group">
+          <label for="gender">Gender (Male/Female):</label>
+          <input type="text" id="gender" name="gender" required>
+        </div>
+        <div class="form-group">
+          <label for="age">Age:</label>
+          <input type="number" id="age" name="age" required>
+        </div>
+      </div>
+      <!-- Row 2: Height & Weight -->
+      <div class="form-row">
+        <div class="form-group">
+          <label for="height">Height (in meters):</label>
+          <input type="number" id="height" name="height" step="0.01" required>
+        </div>
+        <div class="form-group">
+          <label for="weight">Weight (in kilograms):</label>
+          <input type="number" id="weight" name="weight" step="0.01" required>
+        </div>
+      </div>
+      <!-- Row 3: Family History & High Caloric Food -->
+      <div class="form-row">
+        <div class="form-group">
+          <label for="family_history_with_overweight">Family history of overweight? (yes/no):</label>
+          <input type="text" id="family_history_with_overweight" name="family_history_with_overweight" required>
+        </div>
+        <div class="form-group">
+          <label for="FAVC">Frequent consumption of high caloric food? (yes/no):</label>
+          <input type="text" id="FAVC" name="FAVC" required>
+        </div>
+      </div>
+      <!-- Row 4: Vegetable Frequency & Number of Main Meals -->
+      <div class="form-row">
+        <div class="form-group">
+          <label for="FCVC">Frequency of vegetable consumption (1-3):</label>
+          <input type="number" id="FCVC" name="FCVC" min="1" max="3" required>
+        </div>
+        <div class="form-group">
+          <label for="NCP">Number of main meals (1-4):</label>
+          <input type="number" id="NCP" name="NCP" min="1" max="4" required>
+        </div>
+      </div>
+      <!-- Row 5: Food Between Meals & Smoking -->
+      <div class="form-row">
+        <div class="form-group">
+          <label for="CAEC">Consumption of food between meals (Never/Sometimes/Frequently/Always):</label>
+          <input type="text" id="CAEC" name="CAEC" required>
+        </div>
+        <div class="form-group">
+          <label for="SMOKE">Do you smoke? (yes/no):</label>
+          <input type="text" id="SMOKE" name="SMOKE" required>
+        </div>
+      </div>
+      <!-- Row 6: Water Consumption & Calories Monitoring -->
+      <div class="form-row">
+        <div class="form-group">
+          <label for="CH2O">Consumption of water daily in Liters:</label>
+          <input type="number" id="CH2O" name="CH2O" step="0.01" required>
+        </div>
+        <div class="form-group">
+          <label for="SCC">Monitor your calories consumption? (yes/no):</label>
+          <input type="text" id="SCC" name="SCC" required>
+        </div>
+      </div>
+      <!-- Row 7: Physical Activity & Technology Usage -->
+      <div class="form-row">
+        <div class="form-group">
+          <label for="FAF">Physical activity frequency per week (0-3):</label>
+          <input type="number" id="FAF" name="FAF" min="0" max="3" required>
+        </div>
+        <div class="form-group">
+          <label for="TUE">Time using technology devices in hours:</label>
+          <input type="number" id="TUE" name="TUE" step="0.01" required>
+        </div>
+      </div>
+      <!-- Row 8: Alcohol Consumption & Transportation Mode -->
+      <div class="form-row">
+        <div class="form-group">
+          <label for="CALC">Consumption of alcohol (Never/Sometimes/Frequently/Always):</label>
+          <input type="text" id="CALC" name="CALC" required>
+        </div>
+        <div class="form-group">
+          <label for="MTRANS">Mode of transportation used (e.g., Public_Transportation, Walking):</label>
+          <input type="text" id="MTRANS" name="MTRANS" required>
+        </div>
+      </div>
+      <!-- Submit Button Row -->
+      <div class="form-row full-width">
+        <input type="submit" value="Predict">
+      </div>
+    </form>
+  </div>
+</body>
+</html>

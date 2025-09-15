@@ -1,0 +1,53 @@
+/* Desktop first responsive design */
+@media (min-width: 1200px) {
+  .skill-icon {
+    max-width: 1200px;
+    padding: 3rem;
+  }
+  .skills {
+    flex: 0 0 calc(20% - 2rem); /* 5 items per row */
+  }
+}
+
+@media (max-width: 1199px) {
+  .skills {
+    flex: 0 0 calc(25% - 2rem); /* 4 items per row */
+  }
+}
+
+@media (max-width: 991px) {
+  .skills {
+    flex: 0 0 calc(33.333% - 2rem); /* 3 items per row */
+  }
+}
+
+@media (max-width: 767px) {
+  .skill-icon {
+    width: 95%;
+    padding: 2rem 1rem;
+    gap: 1rem;
+  }
+  .skills {
+    flex: 0 0 calc(50% - 1rem); /* 2 items per row */
+    min-width: 150px;
+    padding: 1rem;
+  }
+  .skills img {
+    height: 50px;
+    width: 50px;
+  }
+}
+
+@media (max-width: 479px) {
+  .skill-icon {
+    padding: 1rem;
+  }
+  .skills {
+    flex: 0 0 100%; /* 1 item per row */
+    min-width: auto;
+  }
+  .skills img {
+    height: 45px;
+    width: 45px;
+  }
+}
