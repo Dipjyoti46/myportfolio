@@ -839,12 +839,21 @@ textarea.form-control {
   color: rgb(0, 0, 0);
 }
 .card-content, .wrk_card-content {
-  margin-top: 1.5rem;
+  margin: 1.5rem auto;
   color: var(--text-primary);
   padding: 1.5rem;
   background: rgba(255, 255, 255, 0.05);
   border-radius: 1rem;
   backdrop-filter: blur(5px);
+  width: 90%;
+  max-width: 800px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-content:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
 }
 
 .card-content h2, .wrk_card-content h1 {
@@ -853,12 +862,18 @@ textarea.form-control {
   color: var(--text-primary);
   font-weight: 600;
   letter-spacing: 0.5px;
+  text-align: center;
 }
+
 .card-content p, .wrk_card-content p {
-  font-size: 1rem;
+  font-size: 1.1rem;
   color: var(--text-secondary);
   line-height: 1.6;
   margin-bottom: 1rem;
+  text-align: center;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
 }
 .learning-outcomes {
   padding: 2rem;
@@ -1201,22 +1216,20 @@ textarea.form-control {
   }
   .slider-container {
     position: relative;
-    width: 60%;
+    width: 95%;
     max-width: 1000px;
-    margin: 40px auto;
-    margin-top: 10px;
+    margin: 1.5rem auto;
     overflow: hidden;
-    background: #fff;
-    border: 1px solid #ddd;
-    border-radius: 4px;
+    background: rgba(15, 23, 42, 0.8);
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
     opacity: 0;
     animation-name: intro_ani;
-    animation-duration: 3s;
-    animation-delay: 1.5s;
+    animation-duration: 2s;
+    animation-delay: 1s;
     animation-fill-mode: forwards;
-    animation-timeline: view() ;
-    animation-range: entry 30%;
-  
+    padding: 1rem 0.5rem;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
   }
   .slider-card {
     display: flex;
@@ -1228,13 +1241,34 @@ textarea.form-control {
     padding: 5px;
     background-image: linear-gradient(rgb(4, 53, 138),rgba(0, 0, 255, 0.271));
   }
-  .slider-card img{
-    width: 55%;
-    height: auto;
+  .slider-card img {
+    width: 100%;
+    max-width: 300px;
+    height: 200px;
+    object-fit: contain;
+    margin: 0 auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   }
-  .slider-card .card-content{
-    width: 60%;
-    height: auto;
+
+  .card-content, .wrk_card-content {
+    width: 95%;
+    margin: 0.75rem auto;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+  }
+
+  .card-content h2, .wrk_card-content h1 {
+    font-size: 1.2rem;
+    margin-bottom: 0.75rem;
+    line-height: 1.4;
+  }
+
+  .card-content p, .wrk_card-content p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin-bottom: 0.75rem;
   }
   .tool-link{
     display: flex;

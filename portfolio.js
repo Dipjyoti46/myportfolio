@@ -200,7 +200,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const workSlider = new WorkSlider(document.querySelector('.wrk_slider-container'));
 
   // Initialize CSS variables for smooth transitions
-  document.documentElement.style.setProperty('--slider-transition', 'transform 0.5s cubic-bezier(0.4, 0, 0.2, 1)');
+  document.documentElement.style.setProperty('--slider-transition', 'transform 1s cubic-bezier(0.4, 0, 0.2, 1)');
 });
 
 document.getElementById("contact-form").addEventListener("submit", function(event) {
